@@ -1,0 +1,155 @@
+version: "3.9"
+
+# ============================================================
+# UTS PPLOS - Sistem Reservasi Klinik / Manajemen Pasien
+# NIM digit akhir: 5 → GitHub OAuth
+# Arsitektur: API Gateway + 3 Microservice + 4 MySQL DB
+# ============================================================
+
+networks:
+  klinik-net:
+    driver: bridge
+
+volumes:
+  auth_db_data:
+  patient_db_data:
+  clinic_db_data:
+
+services:
+
+  # ── DATABASE LAYER ──────────────────────────────────────────
+
+  auth-db:
+    image: mysql:8.0
+    container_name: auth-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: auth_db
+      MYSQL_USER: auth_user
+      MYSQL_PASSWORD: auth_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - auth_db_data:/var/lib/mysql
+      - ./services/auth-service/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - klinik-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uauth_user", "-pauth_pass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  patient-db:
+    image: mysql:8.0
+    container_name: patient-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: patient_db
+      MYSQL_USER: patient_user
+      MYSQL_PASSWORD: patient_pass
+    ports:
+      - "3308:3306"
+    volumes:
+      - patient_db_data:/var/lib/mysql
+      - ./services/patient-service/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - klinik-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-upatient_user", "-ppatient_pass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  clinic-db:
+    image: mysql:8.0
+    container_name: clinic-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: clinic_db
+      MYSQL_USER: clinic_user
+      MYSQL_PASSWORD: clinic_pass
+    ports:
+      - "3309:3306"
+    volumes:
+      - clinic_db_data:/var/lib/mysql
+      - ./services/clinic-service/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - klinik-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uclinic_user", "-pclinic_pass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── SERVICE LAYER ──────────────────────────────────────────
+
+  auth-service:
+    build:
+      context: ./services/auth-service
+      dockerfile: Dockerfile
+    container_name: auth-service
+    restart: unless-stopped
+    env_file:
+      - ./services/auth-service/.env
+    ports:
+      - "3001:3001"
+    depends_on:
+      auth-db:
+        condition: service_healthy
+    networks:
+      - klinik-net
+
+  patient-service:
+    build:
+      context: ./services/patient-service
+      dockerfile: Dockerfile
+    container_name: patient-service
+    restart: unless-stopped
+    env_file:
+      - ./services/patient-service/.env
+    ports:
+      - "8080:8080"
+    depends_on:
+      patient-db:
+        condition: service_healthy
+    networks:
+      - klinik-net
+
+  clinic-service:
+    build:
+      context: ./services/clinic-service
+      dockerfile: Dockerfile
+    container_name: clinic-service
+    restart: unless-stopped
+    env_file:
+      - ./services/clinic-service/.env
+    ports:
+      - "3002:3002"
+    depends_on:
+      clinic-db:
+        condition: service_healthy
+    networks:
+      - klinik-net
+
+  # ── GATEWAY LAYER ──────────────────────────────────────────
+
+  api-gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    restart: unless-stopped
+    env_file:
+      - ./gateway/.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - auth-service
+      - patient-service
+      - clinic-service
+    networks:
+      - klinik-net
