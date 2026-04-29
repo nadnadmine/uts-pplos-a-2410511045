@@ -1,0 +1,38 @@
+FROM php:8.2-cli-alpine
+
+# Install ekstensi PHP yang dibutuhkan CodeIgniter 4
+RUN apk add --no-cache \
+    curl \
+    libpng-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    oniguruma-dev \
+    && docker-php-ext-install \
+    pdo \
+    pdo_mysql \
+    mysqli \
+    mbstring \
+    zip \
+    intl
+
+# Install Composer
+COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+# Install dependencies Composer dulu (cache layer)
+COPY composer.json composer.lock* ./
+RUN composer install --no-dev --optimize-autoloader --no-interaction 2>/dev/null || \
+    composer install --no-dev --optimize-autoloader --no-interaction
+
+# Copy seluruh source
+COPY . .
+
+# Beri permission ke direktori writable CodeIgniter
+RUN chmod -R 777 writable/
+
+EXPOSE 8080
+
+# Jalankan PHP built-in server (cukup untuk dev/UTS)
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
