@@ -118,7 +118,8 @@ Catatan pengujian OAuth: endpoint `GET /auth/github` dan `GET /auth/github/callb
 
 ## Dokumentasi Pengerjaan
 
-- [Alur commit, branch, dan Pull Request](docs/commit-instructions.md)
-- [Arsitektur dan justifikasi service](docs/architecture.md)
+- [Laporan](docs/laporan-uts.pdf)
+- [Arsitektur System](docs/architecture.drawio.png)
+- [Video Demo](https://www.youtube.com/watch?v=Wvq3t67dvPI)
 
 Tag final yang disarankan: `submission-v1`.
