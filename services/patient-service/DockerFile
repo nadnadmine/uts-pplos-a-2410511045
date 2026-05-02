@@ -1,38 +1,23 @@
-FROM php:8.2-cli-alpine
+FROM php:8.2-apache
 
-# Install ekstensi PHP yang dibutuhkan CodeIgniter 4
-RUN apk add --no-cache \
-    curl \
-    libpng-dev \
-    libzip-dev \
-    zip \
+RUN apt-get update && apt-get install -y \
+    git \
+    libicu-dev \
     unzip \
-    oniguruma-dev \
-    && docker-php-ext-install \
-    pdo \
-    pdo_mysql \
-    mysqli \
-    mbstring \
-    zip \
-    intl
+    && docker-php-ext-install intl mysqli pdo_mysql \
+    && a2enmod rewrite \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
-COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-WORKDIR /app
+COPY . /var/www/html
+WORKDIR /var/www/html
 
-# Install dependencies Composer dulu (cache layer)
-COPY composer.json composer.lock* ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction 2>/dev/null || \
-    composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer install --no-dev --optimize-autoloader \
+    && sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
+    && sed -ri 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf \
+    && sed -ri 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf \
+    && chown -R www-data:www-data /var/www/html/writable \
+    && chmod -R 775 /var/www/html/writable
 
-# Copy seluruh source
-COPY . .
-
-# Beri permission ke direktori writable CodeIgniter
-RUN chmod -R 777 writable/
-
-EXPOSE 8080
-
-# Jalankan PHP built-in server (cukup untuk dev/UTS)
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+EXPOSE 80
