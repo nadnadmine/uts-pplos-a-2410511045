@@ -49,7 +49,14 @@ copy services\patient-service\.env.example services\patient-service\.env
 
 4. Isi `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, dan konfigurasi database di file `.env`.
 
-5. Install dependency Node.js:
+5. Install dependency PHP:
+
+```bash
+cd services\patient-service
+composer install
+```
+
+6. Install dependency Node.js:
 
 ```bash
 cd services\auth-service
@@ -60,7 +67,7 @@ cd ..\..\gateway
 npm install
 ```
 
-6. Jalankan service:
+7. Jalankan service:
 
 ```bash
 cd services\auth-service && npm run dev

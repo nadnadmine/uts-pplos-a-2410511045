@@ -16,7 +16,7 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "appointment-service" });
 });
 
-app.use("/appointment", routes);
+app.use("/", routes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
