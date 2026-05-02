@@ -1,0 +1,1910 @@
+{
+  "info": {
+    "_postman_id": "eb53d669-f4f7-47d6-bbbf-71d9ca804f72",
+    "name": "uts-pplos-a-2410511045",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49563364",
+    "_collection_link": "https://go.postman.co/collection/49563364-eb53d669-f4f7-47d6-bbbf-71d9ca804f72?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Nadia Aulia\", \r\n    \"email\": \"nadiaulia@gmail.com\",\r\n    \"password\": \"nadnad007_\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Nadia Aulia\", \r\n    \"email\": \"nadiaulia@gmail.com\",\r\n    \"password\": \"nadnad007_\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "156"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"9c-9LbIjt6taxjq5vlSryEo7JJTjNQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:14:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"User registered\",\n    \"user\": {\n        \"id\": 6,\n        \"name\": \"Nadia Aulia\",\n        \"email\": \"nadiaulia@gmail.com\",\n        \"avatar_url\": null,\n        \"oauth_provider\": \"local\",\n        \"role\": \"patient\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"nadiaulia@gmail.com\",\r\n    \"password\": \"nadnad007_\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"nadiaulia@gmail.com\",\r\n    \"password\": \"nadnad007_\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "57"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "8"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "594"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"252-1Gay3zRtTZewpPCmwJvfWQ5QYDg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:20:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 900,\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3NzgzNTA4MzZ9.yBrLJun4f5btwwk5TYHkFuIGhRKCJ4SdaGpXN_k5pNw\",\n    \"user\": {\n        \"id\": 6,\n        \"name\": \"Nadia Aulia\",\n        \"email\": \"nadiaulia@gmail.com\",\n        \"avatar_url\": null,\n        \"oauth_provider\": \"local\",\n        \"role\": \"patient\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "GitHub",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/auth/github",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "github"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GitHub Callback",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/auth/github/callback?code={7a20babc95b3f0382a41}",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "github",
+                "callback"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "{7a20babc95b3f0382a41}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ1NzQwLCJleHAiOjE3NzgzNTA1NDB9.DJpsENa_zM6PT6gr2Clx62Kk_UI0DhFB33QvwK5GFg4\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/refresh",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Refresh",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ1NzQwLCJleHAiOjE3NzgzNTA1NDB9.DJpsENa_zM6PT6gr2Clx62Kk_UI0DhFB33QvwK5GFg4\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/auth/refresh",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "auth",
+                    "refresh"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "594"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"252-rtEL1dT3mFzw/MkJ70Lrsv5DaOQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:18:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 900,\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3Nzc3NDY3ODV9.bIbfeJBlmQM-XJ-d1p1fvXuUkxdB6DnqnKX_tUPcwoM\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3NzgzNTA2ODV9.oqYXjVha0nt2nuPFTqQut2ef6TWp94ju9Lny4Ir14uk\",\n    \"user\": {\n        \"id\": 6,\n        \"name\": \"Nadia Aulia\",\n        \"email\": \"nadiaulia@gmail.com\",\n        \"avatar_url\": null,\n        \"oauth_provider\": \"local\",\n        \"role\": \"patient\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3Nzc3NDY3ODV9.bIbfeJBlmQM-XJ-d1p1fvXuUkxdB6DnqnKX_tUPcwoM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3NzgzNTA2ODV9.oqYXjVha0nt2nuPFTqQut2ef6TWp94ju9Lny4Ir14uk\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Logout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3NzgzNTA2ODV9.oqYXjVha0nt2nuPFTqQut2ef6TWp94ju9Lny4Ir14uk\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/auth/logout",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:19:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "Introspect",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ1ODg1LCJleHAiOjE3Nzc3NDY3ODV9.bIbfeJBlmQM-XJ-d1p1fvXuUkxdB6DnqnKX_tUPcwoM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/introspect",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "introspect"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Introspect",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/auth/introspect",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "auth",
+                    "introspect"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "39"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "42"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a-fQIFFXmDoO+jNUw5aBh1MGm1A5s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:20:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Token is inactive or revoked\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Appointment",
+      "item": [
+        {
+          "name": "Lihat Jadwal Dokter",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/doctors/schedule",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "doctors",
+                "schedule"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Lihat Jadwal Dokter",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/doctors/schedule",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "doctors",
+                    "schedule"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "420"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1a4-bB91Uro4Nzg2lRpCWxYsB8iJyVw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:21:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"day_of_week\": \"Senin\",\n            \"start_time\": \"08:00:00\",\n            \"end_time\": \"12:00:00\",\n            \"quota\": 12,\n            \"doctor_id\": 1,\n            \"doctor_name\": \"dr. Rania Putri\",\n            \"specialization\": \"Dokter Umum\",\n            \"clinic_id\": 1,\n            \"clinic_name\": \"Poli Umum\"\n        },\n        {\n            \"id\": 2,\n            \"day_of_week\": \"Rabu\",\n            \"start_time\": \"13:00:00\",\n            \"end_time\": \"16:00:00\",\n            \"quota\": 8,\n            \"doctor_id\": 2,\n            \"doctor_name\": \"drg. Arif Maulana\",\n            \"specialization\": \"Dokter Gigi\",\n            \"clinic_id\": 2,\n            \"clinic_name\": \"Poli Gigi\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buat Reservasi",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"patient_id\": 1,\r\n    \"schedule_id\": 1,\r\n    \"reservation_date\": \"2026-05-12\",\r\n    \"complaint\": \"Kontrol kesehatan umum\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/reservations",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "reservations"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Buat Reservasi",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"patient_id\": 1,\r\n    \"schedule_id\": 1,\r\n    \"reservation_date\": \"2026-05-12\",\r\n    \"complaint\": \"Kontrol kesehatan umum\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/reservations",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "reservations"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "22"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "400"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"190-5BvyvEO35/tbX3e61WSmsuagetg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:22:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Reservation created\",\n    \"data\": {\n        \"id\": 2,\n        \"user_id\": 6,\n        \"patient_id\": 1,\n        \"schedule_id\": 1,\n        \"reservation_date\": \"2026-05-11T17:00:00.000Z\",\n        \"complaint\": \"Kontrol kesehatan umum\",\n        \"status\": \"pending\",\n        \"created_at\": \"2026-05-02T11:22:01.000Z\",\n        \"updated_at\": \"2026-05-02T11:22:01.000Z\",\n        \"day_of_week\": \"Senin\",\n        \"start_time\": \"08:00:00\",\n        \"end_time\": \"12:00:00\",\n        \"doctor_name\": \"dr. Rania Putri\",\n        \"clinic_name\": \"Poli Umum\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Lihat Detail Reservasi",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/reservations/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "reservations",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Lihat Detail Reservasi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/reservations/me",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "reservations",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "370"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"172-1JAl8vs0bGnoM6hk9Qm6H7/3I7s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:22:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"user_id\": 6,\n            \"patient_id\": 1,\n            \"schedule_id\": 1,\n            \"reservation_date\": \"2026-05-11T17:00:00.000Z\",\n            \"complaint\": \"Kontrol kesehatan umum\",\n            \"status\": \"pending\",\n            \"created_at\": \"2026-05-02T11:22:01.000Z\",\n            \"updated_at\": \"2026-05-02T11:22:01.000Z\",\n            \"day_of_week\": \"Senin\",\n            \"start_time\": \"08:00:00\",\n            \"end_time\": \"12:00:00\",\n            \"doctor_name\": \"dr. Rania Putri\",\n            \"clinic_name\": \"Poli Umum\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Status Reservasi",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/reservations/2/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "reservations",
+                "2",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Status Reservasi",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/reservations/2/status",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "reservations",
+                    "2",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "57"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "2"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "409"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"199-h2ecGUeExh10+TlRFghioPuy94k\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:23:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Reservation status updated\",\n    \"data\": {\n        \"id\": 2,\n        \"user_id\": 6,\n        \"patient_id\": 1,\n        \"schedule_id\": 1,\n        \"reservation_date\": \"2026-05-11T17:00:00.000Z\",\n        \"complaint\": \"Kontrol kesehatan umum\",\n        \"status\": \"confirmed\",\n        \"created_at\": \"2026-05-02T11:22:01.000Z\",\n        \"updated_at\": \"2026-05-02T11:23:33.000Z\",\n        \"day_of_week\": \"Senin\",\n        \"start_time\": \"08:00:00\",\n        \"end_time\": \"12:00:00\",\n        \"doctor_name\": \"dr. Rania Putri\",\n        \"clinic_name\": \"Poli Umum\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Hapus Reservasi",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/reservations/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "reservations",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Hapus Reservasi",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/reservations/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "reservations",
+                    "2"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:24:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Patient",
+      "item": [
+        {
+          "name": "Lihat Pasien",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/patients?page=1&per_page=10&name=Angkasa Putra&nik=2410511045",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "key": "name",
+                  "value": "Angkasa Putra"
+                },
+                {
+                  "key": "nik",
+                  "value": "2410511045"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Lihat Pasien",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/patients?page=1&per_page=10&name=Angkasa Putra&nik=2410511045",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "patients"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "name",
+                      "value": "Angkasa Putra"
+                    },
+                    {
+                      "key": "nik",
+                      "value": "2410511045"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "67"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"43-ba6LC3fsLjenD6d6WKDzeHBO5ZQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:26:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": [],\n    \"meta\": {\n        \"page\": 1,\n        \"per_page\": 10,\n        \"total\": 0,\n        \"last_page\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Tambah Pasien",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nik\": \"2410511046732830\",\r\n    \"name\": \"Nadia Puspita\",\r\n    \"birth_date\": \"2006-07-07\",\r\n    \"gender\": \"P\",\r\n    \"phone\": \"085813216671\",\r\n    \"address\": \"Pamulang\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/patients",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Tambah Pasien",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nik\": \"2410511046732830\",\r\n    \"name\": \"Nadia Puspita\",\r\n    \"birth_date\": \"2006-07-07\",\r\n    \"gender\": \"P\",\r\n    \"phone\": \"085813216671\",\r\n    \"address\": \"Pamulang\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/patients",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "patients"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "262"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"106-KGWek5OUDJ5dG2GNyqfRQxPXRi0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:27:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Patient created\",\n    \"data\": {\n        \"id\": \"2\",\n        \"user_id\": \"6\",\n        \"nik\": \"2410511046732830\",\n        \"name\": \"Nadia Puspita\",\n        \"birth_date\": \"2006-07-07\",\n        \"gender\": \"P\",\n        \"phone\": \"085813216671\",\n        \"address\": \"Pamulang\",\n        \"created_at\": \"2026-05-02 18:27:28\",\n        \"updated_at\": \"2026-05-02 18:27:28\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Lihat Detail Pasien",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/patients/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "patients",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Lihat Detail Pasien",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/patients/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "patients",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "19"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "234"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ea-EuzJAuCoSEmzarPFy215o/bIA18\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:28:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": \"2\",\n        \"user_id\": \"6\",\n        \"nik\": \"2410511046732830\",\n        \"name\": \"Nadia Puspita\",\n        \"birth_date\": \"2006-07-07\",\n        \"gender\": \"P\",\n        \"phone\": \"085813216671\",\n        \"address\": \"Pamulang\",\n        \"created_at\": \"2026-05-02 18:27:28\",\n        \"updated_at\": \"2026-05-02 18:27:28\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buat Riwayat Pasien",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"patient_id\": 2,\r\n    \"doctor_name\": \"dr. Rania Putri\",\r\n    \"diagnosis\": \"Tipes\",\r\n    \"treatment\": \"Rawat Inap\",\r\n    \"visit_date\": \"2026-05-02\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/records",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "records"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Buat Riwayat Pasien",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"patient_id\": 2,\r\n    \"doctor_name\": \"dr. Rania Putri\",\r\n    \"diagnosis\": \"Tipes\",\r\n    \"treatment\": \"Rawat Inap\",\r\n    \"visit_date\": \"2026-05-02\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/records",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "records"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "51"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "284"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"11c-8Qo2FDE44CwBBXnY8nsuCvoaBEI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:28:56 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Medical record created\",\n    \"data\": {\n        \"id\": \"2\",\n        \"patient_id\": \"2\",\n        \"doctor_name\": \"dr. Rania Putri\",\n        \"diagnosis\": \"Tipes\",\n        \"treatment\": \"Rawat Inap\",\n        \"visit_date\": \"2026-05-02\",\n        \"created_at\": \"2026-05-02 18:28:54\",\n        \"patient_name\": \"Nadia Puspita\",\n        \"nik\": \"2410511046732830\",\n        \"prescriptions\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Lihat Detail Record",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/records/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "records",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Lihat Detail Record",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3000/records/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "records",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "57"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "7"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "249"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f9-93j+I21HxDdy/nTcxTP/YSDHBdQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:29:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"id\": \"2\",\n        \"patient_id\": \"2\",\n        \"doctor_name\": \"dr. Rania Putri\",\n        \"diagnosis\": \"Tipes\",\n        \"treatment\": \"Rawat Inap\",\n        \"visit_date\": \"2026-05-02\",\n        \"created_at\": \"2026-05-02 18:28:54\",\n        \"patient_name\": \"Nadia Puspita\",\n        \"nik\": \"2410511046732830\",\n        \"prescriptions\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Prescriptions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoibmFkaWF1bGlhQGdtYWlsLmNvbSIsIm5hbWUiOiJOYWRpYSBBdWxpYSIsInJvbGUiOiJwYXRpZW50IiwiaWF0IjoxNzc3NzQ2MDM2LCJleHAiOjE3Nzc3NDY5MzZ9.nDG2TwU9CkBWOR9xKQB54X9E4fq-JXxkfE_27xvls54",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"record_id\": 2,\r\n    \"medicine_id\": 2,\r\n    \"dosage\": \"500mg\",\r\n    \"instruction\": \"3x sehari setelah makan\",\r\n    \"quantity\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/prescriptions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "prescriptions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Prescriptions",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"record_id\": 2,\r\n    \"medicine_id\": 2,\r\n    \"dosage\": \"500mg\",\r\n    \"instruction\": \"3x sehari setelah makan\",\r\n    \"quantity\": 10\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/prescriptions",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "prescriptions"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "60;w=60"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "60"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "241"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f1-bQsFm/tBdDfUKvLRJ4oGpXkYUhc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 02 May 2026 18:30:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Prescription created\",\n    \"data\": {\n        \"id\": \"2\",\n        \"record_id\": \"2\",\n        \"medicine_id\": \"2\",\n        \"dosage\": \"500mg\",\n        \"instruction\": \"3x sehari setelah makan\",\n        \"quantity\": \"10\",\n        \"created_at\": \"2026-05-02 18:30:22\",\n        \"medicine_name\": \"Amoxicillin\",\n        \"unit\": \"capsule\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
