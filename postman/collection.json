@@ -1,0 +1,306 @@
+{
+  "info": {
+    "name": "UTS PPLOS Klinik Reservation API",
+    "description": "Collection untuk semua endpoint pada README bagian Peta Endpoint Gateway. Jalankan berurutan dari atas ke bawah agar variabel token dan id otomatis terisi.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" },
+    { "key": "registered_email", "value": "" },
+    { "key": "registered_password", "value": "password123" },
+    { "key": "access_token", "value": "" },
+    { "key": "refresh_token", "value": "" },
+    { "key": "patient_id", "value": "1" },
+    { "key": "record_id", "value": "1" },
+    { "key": "reservation_id", "value": "1" },
+    { "key": "github_code", "value": "paste-valid-github-code-here" }
+  ],
+  "item": [
+    {
+      "name": "01 Auth - Register",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const email = `pasien.${Date.now()}@example.com`;",
+              "pm.collectionVariables.set('registered_email', email);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/auth/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Pasien Demo\",\n  \"email\": \"{{registered_email}}\",\n  \"password\": \"{{registered_password}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "02 Auth - Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const json = pm.response.json();",
+              "pm.collectionVariables.set('access_token', json.access_token);",
+              "pm.collectionVariables.set('refresh_token', json.refresh_token);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{registered_email}}\",\n  \"password\": \"{{registered_password}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "03 Auth - GitHub OAuth Redirect",
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "GET",
+        "url": "{{base_url}}/auth/github",
+        "description": "Endpoint sukses jika mengembalikan redirect ke GitHub. Di Postman bisa terlihat sebagai 302 atau halaman GitHub jika follow redirect aktif."
+      }
+    },
+    {
+      "name": "04 Auth - GitHub OAuth Callback",
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "GET",
+        "url": "{{base_url}}/auth/github/callback?code={{github_code}}",
+        "description": "Agar sukses, isi variabel github_code dengan authorization code asli dari GitHub OAuth."
+      }
+    },
+    {
+      "name": "05 Auth - Refresh Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const json = pm.response.json();",
+              "pm.collectionVariables.set('access_token', json.access_token);",
+              "pm.collectionVariables.set('refresh_token', json.refresh_token);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/auth/refresh",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        }
+      }
+    },
+    {
+      "name": "06 Auth - Introspect Token",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/auth/introspect"
+      }
+    },
+    {
+      "name": "07 Patient - List",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/patients?page=1&per_page=10&name=&nik="
+      }
+    },
+    {
+      "name": "08 Patient - Create",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.collectionVariables.set('patient_nik', `317501${Math.floor(Date.now() / 1000)}`);"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const json = pm.response.json();",
+              "pm.collectionVariables.set('patient_id', json.data.id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/patients",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nik\": \"{{patient_nik}}\",\n  \"name\": \"Pasien Demo\",\n  \"birth_date\": \"2004-01-01\",\n  \"gender\": \"P\",\n  \"phone\": \"081234567890\",\n  \"address\": \"Jakarta Selatan\"\n}"
+        }
+      }
+    },
+    {
+      "name": "09 Patient - Show",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/patients/{{patient_id}}"
+      }
+    },
+    {
+      "name": "10 Medical Record - Create",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const json = pm.response.json();",
+              "pm.collectionVariables.set('record_id', json.data.id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/records",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": {{patient_id}},\n  \"doctor_name\": \"dr. Rania Putri\",\n  \"diagnosis\": \"Influenza\",\n  \"treatment\": \"Istirahat cukup dan minum obat penurun panas\",\n  \"visit_date\": \"2026-05-02\"\n}"
+        }
+      }
+    },
+    {
+      "name": "11 Medical Record - Show",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/records/{{record_id}}"
+      }
+    },
+    {
+      "name": "12 Prescription - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/prescriptions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"record_id\": {{record_id}},\n  \"medicine_id\": 1,\n  \"dosage\": \"500mg\",\n  \"instruction\": \"3x sehari setelah makan\",\n  \"quantity\": 10\n}"
+        }
+      }
+    },
+    {
+      "name": "13 Appointment - Doctor Schedule",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/doctors/schedule"
+      }
+    },
+    {
+      "name": "14 Appointment - Create Reservation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const json = pm.response.json();",
+              "pm.collectionVariables.set('reservation_id', json.data.id);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/reservations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": {{patient_id}},\n  \"schedule_id\": 3,\n  \"reservation_date\": \"2026-05-12\",\n  \"complaint\": \"Kontrol kesehatan umum\"\n}"
+        }
+      }
+    },
+    {
+      "name": "15 Appointment - My Reservations",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/reservations/me"
+      }
+    },
+    {
+      "name": "16 Appointment - Update Reservation Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/reservations/{{reservation_id}}/status",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"confirmed\"\n}"
+        }
+      }
+    },
+    {
+      "name": "17 Appointment - Delete Reservation",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+        "url": "{{base_url}}/reservations/{{reservation_id}}"
+      }
+    },
+    {
+      "name": "18 Auth - Logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": "{{base_url}}/auth/logout",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}"
+        }
+      }
+    }
+  ]
+}
